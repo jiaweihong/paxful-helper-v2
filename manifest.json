@@ -1,0 +1,10 @@
+{
+    "name": "Paxful Helper Practice",
+    "version": "1.0",
+    "description": "Paxful Helper",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": ["tabs"]
+}
