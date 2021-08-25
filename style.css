@@ -409,6 +409,10 @@ button {
   color: #848484;
 }
 
+.left-unit {
+  margin-right: 12px;
+}
+
 .not-active-card {
   background: #f7f7f7;
 }
