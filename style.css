@@ -430,11 +430,11 @@ button {
   visibility: hidden;
   position: absolute;
   padding: 8px 12px 8px 12px;
-  max-width: 251px;
+  min-width: 256px;
+  max-height: 40px;
   background: #333333;
   border-radius: 4px;
   z-index: 1;
-  width: 227px;
 
   bottom: 110%;
 
@@ -462,11 +462,11 @@ button {
   visibility: hidden;
   position: absolute;
   padding: 8px 12px 8px 12px;
-  max-width: 251px;
+  min-width: 256px;
+  max-height: 40px;
   background: #333333;
   border-radius: 4px;
   z-index: 1;
-  width: 227px;
 
   bottom: 110%;
   right: 0%;
