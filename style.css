@@ -47,6 +47,9 @@ button {
 
 .logo-one {
   margin: 12px 186px 12px 8px;
+
+  width: 16px;
+  height: 16px;
 }
 
 .body-one {
@@ -152,18 +155,17 @@ button {
 
 .logo-navbar-two {
   margin: 12px 0px 12px 8px;
+  width: 16px;
+  height: 16px;
 }
 
 .exit-navbar-two {
   width: 8px;
   height: 8px;
-
-  margin-bottom: 16px;
+  margin: 16px 20px 16px 274px;
+  cursor: pointer;
 }
 
-.exit-btn-two {
-  margin: 16px 20px 0px 274px;
-}
 .profile {
   height: 78px;
   display: flex;

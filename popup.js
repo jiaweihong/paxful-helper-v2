@@ -1,6 +1,6 @@
 // To hide and show the 2 main html elements in the popup
 const cancelBtn = document.querySelector('.cancel-content-footer-one');
-const exitBtn = document.querySelector('.exit-btn-two');
+const exitBtn = document.querySelector('.exit-navbar-two');
 const pageTwo = document.querySelector('.two');
 const pageOne = document.querySelector('.one');
 const learnMoreBtn = document.querySelector('.learn-more-btn-footer-one');
