@@ -123,6 +123,7 @@ button {
 .two {
   display: flex;
   flex-direction: column;
+  display: none;
 
   width: 440px;
 }
@@ -434,10 +435,6 @@ button {
 .not-active-label,
 .not-active-number {
   color: #848484;
-}
-
-.hidden {
-  display: none;
 }
 
 .tooltip-text-left {

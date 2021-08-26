@@ -10,8 +10,8 @@ function closePopup() {
 }
 
 function showMore() {
-    pageTwo.className = 'two';
-    pageOne.className = 'one hidden'
+    pageTwo.style.display = 'block';
+    pageOne.style.display = 'none'
 
 }
 
@@ -19,7 +19,7 @@ cancelBtn.addEventListener('click', closePopup);
 exitBtn.addEventListener('click', closePopup);
 learnMoreBtn.addEventListener('click', showMore);
 
-async function getCurrentUrl(){
+async function getCurrentPageUrl(){
     var settings = { active: true, currentWindow: true};
     var query = chrome.tabs.query(settings);
     let res = await query;
@@ -27,12 +27,11 @@ async function getCurrentUrl(){
     return url;
 }
 
-async function hide(){
-    var divOne = document.querySelector('#one')
-    var currentPage = await getCurrentUrl();
+async function hideDivOne(){
+    var divOne = document.querySelector('.one')
+    var currentPage = await getCurrentPageUrl();
 
     if (currentPage == 'https://paxful.com/') {
-        console.log(currentPage);
         divOne.style.display = "none"
     } else {
         console.log("not the page");
@@ -40,7 +39,6 @@ async function hide(){
 }
 
 async function getInformation() {
-    
     var fetchInformation = fetch('https://obscure-caverns-38495.herokuapp.com/')
     var res = await fetchInformation;
 
@@ -52,21 +50,22 @@ async function getInformation() {
 async function updateInformation() {
     var data;
     var info;
-    var loadedDOM;
-    var loadingDOM;
+    var loadedDOMList;
+    var loadingDOMList;
     
-    loadingDOM = document.querySelector('.loading');
-    loadedDOM = document.querySelector('.loaded');
-    
-    console.log(1);
+    loadingDOMList = document.querySelectorAll('.loading');
+    loadedDOMList = document.querySelectorAll('.loaded');
+
     data = await getInformation();
     info = data.number;
-    console.log(2);
 
-    loadingDOM.style.display = 'none';
-    loadedDOM.style.display = 'block';    
+    loadingDOMList[0].style.display = 'none';
+    loadedDOMList[0].style.display = 'block';    
+    loadingDOMList[1].style.display = 'none';
+    loadedDOMList[1].style.display = 'block';    
 }
 
-document.addEventListener('DOMContentLoaded', hide)
 updateInformation();
+
+document.addEventListener('DOMContentLoaded', hideDivOne);
 
