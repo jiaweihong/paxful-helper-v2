@@ -39,16 +39,34 @@ async function hide(){
     }
 }
 
-async function getFeedback(){
-    var fetchFeedback = fetch('https://obscure-caverns-38495.herokuapp.com/')
+async function getInformation() {
+    
+    var fetchInformation = fetch('https://obscure-caverns-38495.herokuapp.com/')
+    var res = await fetchInformation;
 
-    var res = await fetchFeedback;
+    var data = await res.json()
 
-    var data = await res.json();
+    return data;
+}
 
-    console.log(data);
+async function updateInformation() {
+    var data;
+    var info;
+    var loadedDOM;
+    var loadingDOM;
+    
+    loadingDOM = document.querySelector('.loading');
+    loadedDOM = document.querySelector('.loaded');
+    
+    console.log(1);
+    data = await getInformation();
+    info = data.number;
+    console.log(2);
+
+    loadingDOM.style.display = 'none';
+    loadedDOM.style.display = 'block';    
 }
 
 document.addEventListener('DOMContentLoaded', hide)
-getFeedback();
+updateInformation();
 
