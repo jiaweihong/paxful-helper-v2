@@ -12,6 +12,10 @@ button {
   outline: inherit;
 }
 
+body {
+  margin: 0px;
+}
+
 /* Section 1 */
 
 .one {
@@ -212,7 +216,7 @@ button {
   border: 1px solid #84cff5;
   border-radius: 4px;
 
-  margin: 0px 16px 8px 16px;
+  margin: 0px 16px 24px 16px;
 
   font-family: Open Sans;
   font-style: normal;
