@@ -38,12 +38,73 @@ async function hideDivOne(){
     }
 }
 
-async function getInformation() {
-    var fetchInformation = fetch('https://obscure-caverns-38495.herokuapp.com/')
+async function getDepositAmount() {
+    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/used-devices');
     var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
 
-    var data = await res.json()
+async function getTradingAmount() {
+    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trading-amount');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
 
+async function getAskingPrice() {
+    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/asking-price');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getDisputeRate() {
+    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/dispute-rate');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getTradeVelocity() {
+    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trade-velocity');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getAccountAge() {
+    var fetchInformation = fetch('http://localhost:3000/account-information/account-age');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getUsedDevices() {
+    var fetchInformation = fetch('http://localhost:3000/account-information/used-devices');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getQuickFeedback() {
+    var fetchInformation = fetch('http://localhost:3000/account-information/quick-feedback');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getIpAddress() {
+    var fetchInformation = fetch('http://localhost:3000/account-information/ip-addresses');
+    var res = await fetchInformation;
+    var data = await res.json();
+    return data;
+}
+
+async function getLoginRegion() {
+    var fetchInformation = fetch('http://localhost:3000/account-information/legion-region');
+    var res = await fetchInformation;
+    var data = await res.json();
     return data;
 }
 
@@ -56,7 +117,7 @@ async function updateInformation() {
     loadingDOMList = document.querySelectorAll('.loading');
     loadedDOMList = document.querySelectorAll('.loaded');
 
-    data = await getInformation();
+    data = await getAskingPrice();
     info = data.number;
 
     loadingDOMList[0].style.display = 'none';
