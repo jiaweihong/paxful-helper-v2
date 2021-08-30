@@ -176,10 +176,23 @@ body {
   flex-direction: row;
 }
 
+.profile-image-container {
+  width: 76px;
+}
+
 .image-profile {
+  position: absolute;
   margin: 14px 0px 14px 26px;
   width: 48px;
   height: 48px;
+}
+
+.online-status {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+
+  margin: 52px 0px 0px 62px;
 }
 
 .info-profile {
