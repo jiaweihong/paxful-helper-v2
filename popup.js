@@ -39,73 +39,163 @@ async function hideDivOne(){
 }
 
 async function getDepositAmount() {
-    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/used-devices');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/used-devices');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getTradingAmount() {
-    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trading-amount');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trading-amount');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getAskingPrice() {
-    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/asking-price');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/asking-price');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getDisputeRate() {
-    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/dispute-rate');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/dispute-rate');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getTradeVelocity() {
-    var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trade-velocity');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trade-velocity');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getAccountAge() {
-    var fetchInformation = fetch('http://localhost:3000/account-information/account-age');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/account-information/account-age');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getUsedDevices() {
-    var fetchInformation = fetch('http://localhost:3000/account-information/used-devices');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/account-information/used-devices');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getQuickFeedback() {
-    var fetchInformation = fetch('http://localhost:3000/account-information/quick-feedback');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/account-information/quick-feedback');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getIpAddress() {
-    var fetchInformation = fetch('http://localhost:3000/account-information/ip-addresses');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/account-information/ip-addresses');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function getLoginRegion() {
-    var fetchInformation = fetch('http://localhost:3000/account-information/legion-region');
-    var res = await fetchInformation;
-    var data = await res.json();
-    return data;
+    try {
+        var fetchInformation = fetch('http://localhost:3000/account-information/legion-region');
+        var res = await fetchInformation;
+
+        if (res.status != 200){
+            return false;
+        }
+
+        var data = await res.json();
+        return data;
+    } catch (error) {
+        return false;
+    }
 }
 
 async function updateInformation() {
