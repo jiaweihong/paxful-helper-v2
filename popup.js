@@ -40,15 +40,15 @@ async function hideDivOne(){
 
 async function getDepositAmount() {
     try {
-        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/used-devices');
+        var fetchInformation = fetch('http://localhost:3000/trading-behaviours/deposit-amount');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -59,12 +59,12 @@ async function getTradingAmount() {
         var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trading-amount');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -75,12 +75,12 @@ async function getAskingPrice() {
         var fetchInformation = fetch('http://localhost:3000/trading-behaviours/asking-price');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -91,12 +91,12 @@ async function getDisputeRate() {
         var fetchInformation = fetch('http://localhost:3000/trading-behaviours/dispute-rate');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -107,12 +107,12 @@ async function getTradeVelocity() {
         var fetchInformation = fetch('http://localhost:3000/trading-behaviours/trade-velocity');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -123,12 +123,12 @@ async function getAccountAge() {
         var fetchInformation = fetch('http://localhost:3000/account-information/account-age');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -139,12 +139,12 @@ async function getUsedDevices() {
         var fetchInformation = fetch('http://localhost:3000/account-information/used-devices');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -155,28 +155,28 @@ async function getQuickFeedback() {
         var fetchInformation = fetch('http://localhost:3000/account-information/quick-feedback');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
 }
 
-async function getIpAddress() {
+async function getIpAddresses() {
     try {
         var fetchInformation = fetch('http://localhost:3000/account-information/ip-addresses');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
@@ -184,39 +184,194 @@ async function getIpAddress() {
 
 async function getLoginRegion() {
     try {
-        var fetchInformation = fetch('http://localhost:3000/account-information/legion-region');
+        var fetchInformation = fetch('http://localhost:3000/account-information/login-region');
         var res = await fetchInformation;
 
-        if (res.status != 200){
+        if (res.status == 500){
             return false;
         }
 
-        var data = await res.json();
-        return data;
+        var json = await res.json();
+        return json;
     } catch (error) {
         return false;
     }
 }
 
-async function updateInformation() {
-    var data;
-    var info;
-    var loadedDOMList;
-    var loadingDOMList;
-    
-    loadingDOMList = document.querySelectorAll('.loading');
-    loadedDOMList = document.querySelectorAll('.loaded');
 
-    data = await getAskingPrice();
-    info = data.number;
+function hideLoadingShowLoaded(card){
+    var loadedCard;
+    var loadingCard;
 
-    loadingDOMList[0].style.display = 'none';
-    loadedDOMList[0].style.display = 'block';    
-    loadingDOMList[1].style.display = 'none';
-    loadedDOMList[1].style.display = 'block';    
+    loadingCard = card.querySelector('.loading');
+    loadedCard = card.querySelector('.loaded');
+
+    loadingCard.style.display = 'none';
+    loadedCard.style.display = 'block';    
+    loadingCard.style.display = 'none';
+    loadedCard.style.display = 'block'; 
 }
 
-updateInformation();
+async function updateDepositAmount(card) {
+    var json;
+    var num;
+    var cardNumber;
+
+    cardNumber = card.querySelector('.number');
+
+    json = await getDepositAmount();
+    num = json.number;
+    cardNumber.innerHTML = num;
+   
+    hideLoadingShowLoaded(card);
+}
+
+async function updateTradingAmount(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getTradingAmount();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateAskingPrice(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+
+    json = await getAskingPrice();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateDisputeRate(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getDisputeRate();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);      
+}
+
+async function updateTradeVelocity(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getTradeVelocity();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);      
+}
+
+async function updateAccountAge(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getAccountAge();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateUsedDevices(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getUsedDevices();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateQuickFeedback(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getQuickFeedback();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateIpAddresses(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getIpAddresses();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);    
+}
+
+async function updateLoginRegion(card) {
+    var json;
+    var num;
+    var cardNumber;
+    
+    cardNumber = card.querySelector('.number');
+
+    json = await getLoginRegion();
+    num = json.number;
+    cardNumber.innerHTML = num;
+
+    hideLoadingShowLoaded(card);     
+}
+
+async function updateAllCards() {
+    var cardList;
+
+    cardList = document.querySelectorAll('.card');
+
+    updateDepositAmount(cardList[0]);
+    updateTradingAmount(cardList[1]);
+    updateAskingPrice(cardList[2]);
+    updateDisputeRate(cardList[3]);
+    updateTradeVelocity(cardList[4]);
+
+    updateAccountAge(cardList[5]);
+    updateUsedDevices(cardList[6]);
+    updateQuickFeedback(cardList[7]);
+    updateIpAddresses(cardList[8]);
+    updateLoginRegion(cardList[9]);
+}
+
+updateAllCards();
 
 document.addEventListener('DOMContentLoaded', hideDivOne);
 
