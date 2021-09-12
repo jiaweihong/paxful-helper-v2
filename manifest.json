@@ -3,8 +3,18 @@
     "version": "1.0",
     "description": "Paxful Helper",
     "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": ["https://paxful.com/*"],
+            "js": ["contentScript.js"],
+            "run_at": "document_end"
+        }
+    ],
     "action": {
         "default_popup": "popup.html"
     },
-    "permissions": ["tabs"]
+    "permissions": ["tabs"],
+    "host_permissions": [
+        "https://paxful.com/*"
+    ]
 }

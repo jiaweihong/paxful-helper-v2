@@ -23,6 +23,7 @@ async function getCurrentPageUrl(){
     var settings = { active: true, currentWindow: true};
     var query = chrome.tabs.query(settings);
     let res = await query;
+    console.log(res);
     var url = res[0].url;
     return url;
 }
@@ -374,4 +375,29 @@ async function updateAllCards() {
 updateAllCards();
 
 document.addEventListener('DOMContentLoaded', hideDivOne);
+
+
+
+async function sendMessageToContentScript() {
+    var settings = { active: true, currentWindow: true};
+    var res = chrome.tabs.query(settings);
+    const tabs = await res;
+    const popupTab = tabs[0];
+
+    chrome.tabs.sendMessage(popupTab.id, {msg: 'get-username-from-popup'}, function(response){
+        updateUsername(response.username);
+        updateProfileImg(response.profileImg);
+    })
+}
+
+function updateUsername(username) {
+    document.querySelector('body > div.two > div.profile > div.info-profile > span.username-info-profile').innerHTML = username;
+}
+
+function updateProfileImg(profileImg) {
+    console.log(profileImg);
+    document.querySelector('body > div.two > div.profile > div.profile-image-container > img.image-profile').src = profileImg;
+}
+
+sendMessageToContentScript();
 
