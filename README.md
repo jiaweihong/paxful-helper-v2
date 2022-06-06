@@ -1,2 +1,0 @@
-# Paxful Helper
-
