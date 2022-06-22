@@ -60,7 +60,7 @@ router.get('/login-region', async (req, res) => {
     }
 })
 
-router.post('/online-status', async (req, res) => {
+router.get('/online-status', async (req, res) => {
     try {
         const userInfo = paxfulApi.invoke('paxful/v1/user/info/me');
         const data = await userInfo.json();
