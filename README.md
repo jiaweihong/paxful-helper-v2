@@ -18,4 +18,4 @@ After pressing the 'Learn More' button, the following page will be displayed.
 
 The backend was built using NodeJS with the express framework. The statistics for each box seen in the picture above should be retrieved by querying Paxful's private API endpoint.
 
-But since the project was cut short and I never got to implement the querying side of the project. However, I made it such that the backend endpoint would send a static data value, just to see that the frontend would correctly display the data.
+However, the project was cut short and I never got to implement the querying side of the project. So I made it such that the backend endpoint would send a static data value, just to see that the frontend would correctly display the data.
