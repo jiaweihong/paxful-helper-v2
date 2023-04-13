@@ -4,6 +4,8 @@
 
 Paxful Helper is a google chrome extension that retrieves and displays statistics / information about a specific user to you through a chrome pop-up. The chrome pop-up will only be able to be clicked on and viewed when you are on a user's profile page.
 
+Note: The project manager that hired me for this contracting job, left the company and as such the project was stopped.
+
 ## Frontend
 
 The frontend (pop up) was coded in pure HTMl, CSS and JavaScript.
