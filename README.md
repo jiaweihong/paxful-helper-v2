@@ -20,4 +20,4 @@ After pressing the 'Learn More' button, the extension would query the API for th
 
 The backend was built using NodeJS with the express framework. The statistics for each box seen in the picture above would've been retrieved by querying Paxful's private API endpoint.
 
-However, the project was cut short and I never got to implement the querying side of the project. So I made it such that the backend would send a static data value, just to see that the frontend would correctly display the data.
+However, the project was cut short and I never got to fully integrate the querying endpoint aspect of the project. So I made it such that the backend would send a static data value, just to complete the general functionality of the extension.
